@@ -1,12 +1,15 @@
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.decorators import action
+from rest_framework.filters import SearchFilter
 from core.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
 
 
 class PontoTuristicoViewSet(ModelViewSet):
     serializer_class = PontoTuristicoSerializer
+    filter_backends = (SearchFilter,)
+    search_fields = ('nome', 'descricao', 'endereco__rua')
 
     def get_queryset(self):
         '''Método que sobrescreve o queryset default da classe'''
