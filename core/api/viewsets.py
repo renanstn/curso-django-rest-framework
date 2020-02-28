@@ -10,6 +10,7 @@ class PontoTuristicoViewSet(ModelViewSet):
     serializer_class = PontoTuristicoSerializer
     filter_backends = (SearchFilter,)
     search_fields = ('nome', 'descricao', 'endereco__rua')
+    # lookup_field = 'nome'  # Este campo substitui o id pelo nome da url
 
     def get_queryset(self):
         '''Método que sobrescreve o queryset default da classe'''
