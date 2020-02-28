@@ -11,29 +11,29 @@ class PontoTuristicoViewSet(ModelViewSet):
     def get_queryset(self):
         return PontoTuristico.objects.filter(aprovado=True)
 
-    # def list(self, request, *args, **kwargs):
-    #     '''Método disparado no GET geral'''
-    #     return Response({'teste': 123})
+    def list(self, request, *args, **kwargs):
+        '''Método disparado no GET geral'''
+        return super(PontoTuristicoViewSet, self).list(request, *args, **kwargs)
 
-    # def create(self, request, *args, **kwargs):
-    #     '''Método disparado no POST'''
-    #     pass
+    def create(self, request, *args, **kwargs):
+        '''Método disparado no POST'''
+        return super(PontoTuristicoViewSet, self).create(request, *args, **kwargs)
 
-    # def destroy(self, request, *args, **kwargs):
-    #     '''Método disparado no DELETE'''
-    #     pass
+    def destroy(self, request, *args, **kwargs):
+        '''Método disparado no DELETE'''
+        return super(PontoTuristicoViewSet, self).destroy(request, *args, **kwargs)
 
-    # def retrieve(self, request, *args, **kwargs):
-    #     '''Método disparado no GET de um recurso específico'''
-    #     pass
+    def retrieve(self, request, *args, **kwargs):
+        '''Método disparado no GET de um recurso específico'''
+        return super(PontoTuristicoViewSet, self).retrieve(request, *args, **kwargs)
 
-    # def update(self, request, *args, **kwargs):
-    #     '''Método disparado no PUT'''
-    #     pass
+    def update(self, request, *args, **kwargs):
+        '''Método disparado no PUT'''
+        return super(PontoTuristicoViewSet, self).update(request, *args, **kwargs)
 
-    # def partial_update(self, request, *args, **kwargs):
-    #     '''Método disparado no PATCH'''
-    #     pass
+    def partial_update(self, request, *args, **kwargs):
+        '''Método disparado no PATCH'''
+        return super(PontoTuristicoViewSet, self).partial_update(request, *args, **kwargs)
 
     @action(methods=['get'], detail=True) # detail=True torna a PK acessível
     def denunciar(self, request, pk=None):

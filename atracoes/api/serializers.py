@@ -10,5 +10,6 @@ class AtracoesSerializer(ModelSerializer):
             'nome',
             'descricao',
             'horario_funcionamento',
-            'idade_minima'
+            'idade_minima',
+            'imagem',
         )
