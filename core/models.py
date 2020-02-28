@@ -17,3 +17,8 @@ class PontoTuristico(models.Model):
 
     def __str__(self):
         return self.nome
+
+    @property
+    def descricao_completa_2(self):
+        '''Propriedade opcional que podemos adicionar para aparecer no serializer'''
+        return f"{self.nome} - {self.descricao}"
