@@ -1,3 +1,7 @@
+# API Pontos turísticos
+
+Projeto desenvolvido nas aulas de Django Rest Framework, [deste](https://www.udemy.com/course/apis-restful-com-django-rest-framework/) curso da Udemy.
+
 ## Steps
 - django-admin startproject pontos_turisticos .
 - python manage.py migrate
