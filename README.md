@@ -3,6 +3,8 @@
 Projeto desenvolvido nas aulas de Django Rest Framework, [deste](https://www.udemy.com/course/apis-restful-com-django-rest-framework/) curso da Udemy.
 
 ## Steps
+- pipenv install
+- pipenv shell
 - django-admin startproject pontos_turisticos .
 - python manage.py migrate
 - python manage.py createsuperuser
