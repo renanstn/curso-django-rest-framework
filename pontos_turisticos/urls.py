@@ -14,7 +14,7 @@ from avaliacoes.api.viewsets import AvaliacoesViewSet
 
 router = routers.DefaultRouter()
 router.register(r'pontoturistico', PontoTuristicoViewSet, basename='PontoTuristico')
-router.register(r'atracoes', AtracoesViewSet)
+router.register(r'atracoes', AtracoesViewSet, basename='atracoes')
 router.register(r'enderecos', EnderecosViewSet)
 router.register(r'comentarios', ComentariosViewSet)
 router.register(r'avaliacoes', AvaliacoesViewSet)
