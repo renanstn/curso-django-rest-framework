@@ -57,9 +57,17 @@ class PontoTuristicoViewSet(ModelViewSet):
     @action(methods=['get'], detail=True) # detail=True torna a PK acessível
     def denunciar(self, request, pk=None):
         '''Action personalizada, pode ser acessada com: /pontoturistico/1/denunciar/'''
-        return Response({'id':pk})
+        return Response({'id': pk})
 
     @action(methods=['get'], detail=False)
     def teste(self, request, pk=None):
         '''Action personalizada, pode ser acessada com: /pontoturistico/teste/'''
         return Response({'helo': 'world'})
+
+    @action(methods=['post'], detail=True)
+    def associa_atracoes(self, request, pk):
+        atracoes = request.data['ids']
+        ponto = PontoTuristico.objects.get(id=pk)
+        ponto.atracoes.set(atracoes)
+        ponto.save()
+        return Response({'detail': 'Associados com sucesso'})
