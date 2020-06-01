@@ -150,7 +150,7 @@ MEDIA_ROOT = 'imagens'
 MEDIA_URL = '/media/'
 
 # Activate Django-Heroku.
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 # Configurar banco de dados para utilizar o postgres-heroku
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
