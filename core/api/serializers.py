@@ -8,6 +8,7 @@ from enderecos.api.serializers import EnderecosSerializer
 from comentarios.api.serializers import ComentariosSerializer
 from avaliacoes.api.serializers import AvaliacoesSerializer
 
+
 class DocIdentificacaoSerializer(ModelSerializer):
     class Meta:
         model = DocIdentificacao
@@ -19,8 +20,8 @@ class PontoTuristicoSerializer(ModelSerializer):
     atracoes = AtracoesSerializer(many=True)
     endereco = EnderecosSerializer()
     documento_identificacao = DocIdentificacaoSerializer()
-    # comentarios = ComentariosSerializer(many=True)
-    # avaliacao = AvaliacoesSerializer(many=True)
+    comentarios = ComentariosSerializer(many=True)
+    avaliacao = AvaliacoesSerializer(many=True)
 
     descricao_completa = SerializerMethodField()
 
@@ -59,7 +60,7 @@ class PontoTuristicoSerializer(ModelSerializer):
         documento_obj = DocIdentificacao.objects.create(**documento)
         ponto.documento_identificacao = documento_obj
         return ponto
-    
+
     def create(self, validated_data):
         '''
         Aqui é tratado para que todos os vínculos do ponto turíscito,

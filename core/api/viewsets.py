@@ -24,44 +24,60 @@ class PontoTuristicoViewSet(ModelViewSet):
         if id:
             queryset = queryset.filter(id=id)
         if nome:
-            queryset = queryset.filter(nome__iexact=nome)  #__ieact ignora maiusc/minusc
+            queryset = queryset.filter(nome__iexact=nome)
+            # __iexact ignora maiusc/minusc
         if descricao:
-            queryset = queryset.filter(descricao__iexact=descricao)  #__ieact ignora maiusc/minusc
+            queryset = queryset.filter(descricao__iexact=descricao)
+            # __iexact ignora maiusc/minusc
 
         return queryset
 
     def list(self, request, *args, **kwargs):
         '''Método disparado no GET geral'''
-        return super(PontoTuristicoViewSet, self).list(request, *args, **kwargs)
+        return super(
+            PontoTuristicoViewSet, self).list(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):
         '''Método disparado no POST'''
-        return super(PontoTuristicoViewSet, self).create(request, *args, **kwargs)
+        return super(
+            PontoTuristicoViewSet, self).create(request, *args, **kwargs)
 
     def destroy(self, request, *args, **kwargs):
         '''Método disparado no DELETE'''
-        return super(PontoTuristicoViewSet, self).destroy(request, *args, **kwargs)
+        return super(
+            PontoTuristicoViewSet, self).destroy(request, *args, **kwargs)
 
     def retrieve(self, request, *args, **kwargs):
         '''Método disparado no GET de um recurso específico'''
-        return super(PontoTuristicoViewSet, self).retrieve(request, *args, **kwargs)
+        return super(
+            PontoTuristicoViewSet, self).retrieve(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
         '''Método disparado no PUT'''
-        return super(PontoTuristicoViewSet, self).update(request, *args, **kwargs)
+        return super(
+            PontoTuristicoViewSet, self).update(request, *args, **kwargs)
 
     def partial_update(self, request, *args, **kwargs):
         '''Método disparado no PATCH'''
-        return super(PontoTuristicoViewSet, self).partial_update(request, *args, **kwargs)
+        return super(
+            PontoTuristicoViewSet, self).partial_update(
+                request, *args, **kwargs)
 
-    @action(methods=['get'], detail=True) # detail=True torna a PK acessível
+    @action(methods=['get'], detail=True)
     def denunciar(self, request, pk=None):
-        '''Action personalizada, pode ser acessada com: /pontoturistico/1/denunciar/'''
+        '''
+        Action personalizada, pode ser acessada com:
+        /pontoturistico/1/denunciar/
+        '''
+        # detail=True torna a PK acessível
         return Response({'id': pk})
 
     @action(methods=['get'], detail=False)
     def teste(self, request, pk=None):
-        '''Action personalizada, pode ser acessada com: /pontoturistico/teste/'''
+        '''
+        Action personalizada, pode ser acessada com:
+        /pontoturistico/teste/
+        '''
         return Response({'helo': 'world'})
 
     @action(methods=['post'], detail=True)
