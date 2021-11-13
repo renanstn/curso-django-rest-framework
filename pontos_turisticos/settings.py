@@ -128,6 +128,8 @@ MEDIA_ROOT = "imagens"
 
 MEDIA_URL = "/media/"
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
 # Activate Django-Heroku.
 if RUNNING_ON_HEROKU:
     django_heroku.settings(locals())
