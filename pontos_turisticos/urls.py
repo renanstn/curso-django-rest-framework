@@ -14,14 +14,15 @@ from avaliacoes.api.viewsets import AvaliacoesViewSet
 
 router = routers.DefaultRouter()
 router.register(
-    r'pontoturistico', PontoTuristicoViewSet, basename='PontoTuristico')
-router.register(r'atracoes', AtracoesViewSet, basename='atracoes')
-router.register(r'enderecos', EnderecosViewSet)
-router.register(r'comentarios', ComentariosViewSet)
-router.register(r'avaliacoes', AvaliacoesViewSet)
+    r"pontoturistico", PontoTuristicoViewSet, basename="PontoTuristico"
+)
+router.register(r"atracoes", AtracoesViewSet, basename="atracoes")
+router.register(r"enderecos", EnderecosViewSet)
+router.register(r"comentarios", ComentariosViewSet)
+router.register(r"avaliacoes", AvaliacoesViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('admin/', admin.site.urls),
-    path('api-token-auth/', obtain_auth_token)
+    path("", include(router.urls)),
+    path("admin/", admin.site.urls),
+    path("api-token-auth/", obtain_auth_token),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -12,7 +12,7 @@ from avaliacoes.api.serializers import AvaliacoesSerializer
 class DocIdentificacaoSerializer(ModelSerializer):
     class Meta:
         model = DocIdentificacao
-        fields = '__all__'
+        fields = "__all__"
 
 
 class PontoTuristicoSerializer(ModelSerializer):
@@ -28,20 +28,20 @@ class PontoTuristicoSerializer(ModelSerializer):
     class Meta:
         model = PontoTuristico
         fields = (
-            'id',
-            'nome',
-            'descricao',
-            'aprovado',
-            'atracoes',
-            'comentarios',
-            'avaliacao',
-            'endereco',
-            'imagem',
-            'descricao_completa',
-            'descricao_completa_2',
-            'documento_identificacao',
+            "id",
+            "nome",
+            "descricao",
+            "aprovado",
+            "atracoes",
+            "comentarios",
+            "avaliacao",
+            "endereco",
+            "imagem",
+            "descricao_completa",
+            "descricao_completa_2",
+            "documento_identificacao",
         )
-        read_only_fields = ('comentarios', 'avaliacao', 'aprovado')
+        read_only_fields = ("comentarios", "avaliacao", "aprovado")
         # Detalhe: Campo aprovado no read_only para que o usuario nao possa
         # criar pontos pré-aprovados
 
@@ -62,22 +62,22 @@ class PontoTuristicoSerializer(ModelSerializer):
         return ponto
 
     def create(self, validated_data):
-        '''
+        """
         Aqui é tratado para que todos os vínculos do ponto turíscito,
         tanto as ForeignKeys quando ManyToMany sejam criados no mesmo
         momento que o post envia as informações.
         Atrações é um exemplo de ManyToMany
         Endereço é um exemplo de ForeignKey
-        '''
+        """
 
-        atracoes = validated_data['atracoes']
-        del validated_data['atracoes']
+        atracoes = validated_data["atracoes"]
+        del validated_data["atracoes"]
 
-        endereco = validated_data['endereco']
-        del validated_data['endereco']
+        endereco = validated_data["endereco"]
+        del validated_data["endereco"]
 
-        documento = validated_data['documento_identificacao']
-        del validated_data['documento_identificacao']
+        documento = validated_data["documento_identificacao"]
+        del validated_data["documento_identificacao"]
 
         ponto = PontoTuristico.objects.create(**validated_data)
 

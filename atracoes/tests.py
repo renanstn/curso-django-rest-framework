@@ -6,28 +6,26 @@ from rest_framework.test import APITestCase
 
 
 class AuthTestCase(APITestCase):
-
     def test_registration(self):
         data_atracao = {
-            'nome': 'teste',
-            'descricao': 'teste',
-            'horario_funcionamento': '24h',
-            'idade_minima': '10',
+            "nome": "teste",
+            "descricao": "teste",
+            "horario_funcionamento": "24h",
+            "idade_minima": "10",
         }
 
         self.user = User.objects.create_user(
-            username="teste",
-            password="teste123"
+            username="teste", password="teste123"
         )
         self.token = Token.objects.create(user=self.user)
 
-        self.client.credentials(HTTP_AUTHORIZATION="Token "+self.token.key)
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token.key)
 
-        atracoes_url = reverse('atracoes-list')
+        atracoes_url = reverse("atracoes-list")
 
         response = self.client.get(atracoes_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
         response = self.client.post(atracoes_url, data_atracao)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(response.data['nome'], data_atracao['nome'])
+        self.assertEqual(response.data["nome"], data_atracao["nome"])

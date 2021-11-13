@@ -6,4 +6,4 @@ from .serializers import AtracoesSerializer
 class AtracoesViewSet(ModelViewSet):
     queryset = Atracao.objects.all()
     serializer_class = AtracoesSerializer
-    filter_fields = ('nome', 'descricao')  # Graças ao django-filter
+    filter_fields = ("nome", "descricao")  # Graças ao django-filter

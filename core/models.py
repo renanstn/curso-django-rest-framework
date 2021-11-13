@@ -20,19 +20,22 @@ class PontoTuristico(models.Model):
     comentarios = models.ManyToManyField(Comentario)
     avaliacao = models.ManyToManyField(Avaliacao)
     endereco = models.ForeignKey(
-        Endereco, on_delete=models.CASCADE, null=True, blank=True)
+        Endereco, on_delete=models.CASCADE, null=True, blank=True
+    )
     imagem = models.ImageField(
-        upload_to='pontos_turisticos', null=True, blank=True)
+        upload_to="pontos_turisticos", null=True, blank=True
+    )
     documento_identificacao = models.OneToOneField(
-        DocIdentificacao, on_delete=models.CASCADE, blank=True, null=True)
+        DocIdentificacao, on_delete=models.CASCADE, blank=True, null=True
+    )
 
     def __str__(self):
         return self.nome
 
     @property
     def descricao_completa_2(self):
-        '''
+        """
         Propriedade opcional que podemos adicionar para aparecer
         no serializer
-        '''
+        """
         return f"{self.nome} - {self.descricao}"

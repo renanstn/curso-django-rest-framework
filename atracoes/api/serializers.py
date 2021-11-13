@@ -3,13 +3,13 @@ from atracoes.models import Atracao
 
 
 class AtracoesSerializer(ModelSerializer):
-    class Meta():
+    class Meta:
         model = Atracao
         fields = (
-            'id',
-            'nome',
-            'descricao',
-            'horario_funcionamento',
-            'idade_minima',
-            'imagem',
+            "id",
+            "nome",
+            "descricao",
+            "horario_funcionamento",
+            "idade_minima",
+            "imagem",
         )

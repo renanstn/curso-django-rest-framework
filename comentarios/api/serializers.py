@@ -3,12 +3,12 @@ from comentarios.models import Comentario
 
 
 class ComentariosSerializer(ModelSerializer):
-    class Meta():
+    class Meta:
         model = Comentario
         fields = (
-            'id',
-            'usuario',
-            'comentario',
-            'data',
-            'aprovado',
+            "id",
+            "usuario",
+            "comentario",
+            "data",
+            "aprovado",
         )
