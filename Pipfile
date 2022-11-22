@@ -9,7 +9,7 @@ black = "*"
 [packages]
 django = "==3.2"
 djangorestframework = "==3.12"
-pillow = "==9.0"
+pillow = "==9.3.0"
 django-filter = "==21.1"
 gunicorn = "==20.1"
 django-heroku = "==0.3"
